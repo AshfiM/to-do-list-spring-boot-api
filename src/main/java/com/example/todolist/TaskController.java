@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/app")
+@CrossOrigin
 public class TaskController {
 
     private final TaskService taskService;
