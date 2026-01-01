@@ -1,11 +1,14 @@
 package com.example.todolist;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class TaskModel {
 
     private Long id;
     private String task;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     public TaskModel () {

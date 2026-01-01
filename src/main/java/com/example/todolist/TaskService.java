@@ -25,11 +25,15 @@ public class TaskService {
         return taskRepository.save(task);
     }
     public Optional<TaskEntity> updateTask(Long id, TaskEntity newTask) {
-        return taskRepository.findById(id).map(task -> {
+        Optional<TaskEntity> taskEntity = taskRepository.findById(id);
+        if (taskEntity.isPresent()) {
+            TaskEntity task = taskEntity.get();
             task.setTaskName(newTask.getTaskName());
             task.setDate(newTask.getDate());
-            return taskRepository.save(task);
-        });
+            taskRepository.save(taskEntity.get());
+        };
+
+        return taskEntity;
     }
     public Optional<TaskEntity> deleteTask(Long id) {
         Optional<TaskEntity> task = taskRepository.findById(id);
