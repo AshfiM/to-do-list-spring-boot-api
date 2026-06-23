@@ -1,6 +1,7 @@
 package com.example.todolist;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,13 +48,13 @@ public class TaskController {
     @PostMapping(value = "/addTask",
     consumes = "application/json",
     produces = "application/json")
-    public TaskModel addTask(@RequestBody TaskModel taskModel) {
+    public ResponseEntity<TaskModel> addTask(@RequestBody TaskModel taskModel) {
         TaskEntity taskEntity = new TaskEntity();
         taskEntity.setDate(taskModel.getDate());
         taskEntity.setTaskName(taskModel.getTask());
         TaskEntity task = taskService.insertTask(taskEntity);
         TaskModel res = new TaskModel(task.getId(), task.getTaskName(), task.getDate());
-        return  ResponseEntity.ok(res).getBody();
+        return  ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
 
     @PutMapping(value = "/updateTask",

@@ -24,7 +24,6 @@ public class TaskEntity {
     public TaskEntity(String name, Date date){
         this.taskName = name;
         this.date = date;
-
     }
 
     public void setId(long id) {
