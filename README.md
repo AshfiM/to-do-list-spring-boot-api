@@ -4,7 +4,7 @@
 - BACKEND - SPRING BOOT - VER - 4.0
 - DATABASE - MYSQL
 
-# Architecture
+## Architecture
 
 - RESTful API design
 - Mysql Database Integration
@@ -12,7 +12,7 @@
 
 ** Client --> Controller layer --> Service Layer --> Repository Layer --> Database Layer **
 
-# Features
+## Features
 1. Create new task
 2. Update task
 3. Delete task
